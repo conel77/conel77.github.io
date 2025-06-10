@@ -1,15 +1,16 @@
 ---
 layout: post
 title: "Anomalydiffusion: Few-Shot Anomaly Image Generation with Diffusion Model (+Textual Inversion)"
-image: anomaly_diffusion.jpg
+image: framework_anodiff.jpg
 date: 2024-05-23 14:27:00 +0900
-tags: [anomaly, diffusion, textual inversion]
+tags: [anomaly image generation, diffusion, textual inversion]
 categories: anomaly image generation
 ---
 
-# Anomalydiffusion : Few-Shot Anomaly Image Generation with Diffusion Model(+Textual Inversion)
 
-Created: May 23, 2024 2:27 PM
+<p align="center">
+  <img src="/images/framework_anodiff.png" alt="AnomalyDiffusion Framework" width="600"/>
+</p>
 
 textual inversion 에서 학습한 textual embedding 을 활용해서 anomaly 한 타입을 결정함.
 
