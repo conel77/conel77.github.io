@@ -1,34 +1,27 @@
 ---
-layout: page
+layout: home
 title: Categories
 permalink: /categories/
 ---
 
-<section class="c-blog-tags o-opacity">
-  <h1>📚 Categories</h1>
-  <ul class="c-tag__list">
+<div class="c-categories">
+  <ul class="c-categories__list u-lists-reset">
     {% assign sorted_categories = site.categories | sort %}
     {% for category in sorted_categories %}
-      <li>
-        <a href="#{{ category[0] | slugify }}" class="c-tag">
-          {{ category[0] }} <span>({{ category[1].size }})</span>
-        </a>
-      </li>
+    <li class="c-categories__item">
+      <a class="c-categories__link" href="/category/{{ category[0] | slugify }}/">
+        <div class="c-categories__img">
+          <figure style="background-image: url('/images/{{ category[1] | first | dig: 'image' | default: 'default.jpg' }}');"></figure>
+          <span class="c-categories__more">View all</span>
+        </div>
+        <div class="c-categories__container">
+          <h2 class="c-categories__header">{{ category[0] }}</h2>
+          <p class="c-categories__count">
+            <span>{{ category[1].size }}</span> Posts
+          </p>
+        </div>
+      </a>
+    </li>
     {% endfor %}
   </ul>
-
-  {% for category in sorted_categories %}
-    <h2 id="{{ category[0] | slugify }}">{{ category[0] }}</h2>
-    {% for post in category[1] %}
-    <div class="c-tag__item">
-        <span>
-          {% if post.image %}
-            <img class="c-tag__image" src="{{ "/images/" | prepend: site.baseurl | append: post.image }}" alt="{{ post.title }}">
-          {% endif %}
-          <a href="{{ post.url }}">{{ post.title }}</a>
-        </span>
-        <small><span>| {{ post.date | date_to_string }}</span></small>
-    </div>
-    {% endfor %}
-  {% endfor %}
-</section>
+</div>
