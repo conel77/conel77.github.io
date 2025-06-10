@@ -4,24 +4,4 @@ title: Categories
 permalink: /categories/
 ---
 
-<div class="c-categories">
-  <ul class="c-categories__list u-lists-reset">
-    {% assign sorted_categories = site.categories | sort %}
-    {% for category in sorted_categories %}
-    <li class="c-categories__item">
-      <a class="c-categories__link" href="/category/{{ category[0] | slugify }}/">
-        <div class="c-categories__img">
-          <figure style="background-image: url('/images/{{ category[1] | first | dig: 'image' | default: 'default.jpg' }}');"></figure>
-          <span class="c-categories__more">View all</span>
-        </div>
-        <div class="c-categories__container">
-          <h2 class="c-categories__header">{{ category[0] }}</h2>
-          <p class="c-categories__count">
-            <span>{{ category[1].size }}</span> Posts
-          </p>
-        </div>
-      </a>
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+{% include categories.html %}
