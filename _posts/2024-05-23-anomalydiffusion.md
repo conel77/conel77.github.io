@@ -4,7 +4,7 @@ title: "Anomalydiffusion: Few-Shot Anomaly Image Generation with Diffusion Model
 image: framework_anodiff.jpg
 date: 2024-05-23 14:27:00 +0900
 tags: [anomaly image generation, diffusion, textual inversion]
-categories: anomaly image generation
+categories: anomaly
 ---
 
 
