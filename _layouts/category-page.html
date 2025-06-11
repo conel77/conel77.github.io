@@ -3,6 +3,7 @@ layout: home
 ---
 
 {% include header.html %}
+
 <div class="c-posts o-opacity">
   {% assign current_category = page.category | downcase %}
   {% for post in site.posts %}
@@ -10,15 +11,16 @@ layout: home
       {% if cat | downcase == current_category %}
         <article class="c-post">
           {% if post.image %}
-          <a class="c-post-thumbnail" style="background-image: url({{"/images/" | prepend: site.baseurl | append : post.image}})"
-            href="{{post.url | prepend: site.baseurl}}"></a>
+          <a class="c-post-thumbnail"
+            style="background-image: url({{ "/images/" | prepend: site.baseurl | append : post.image }})"
+            href="{{ post.url | prepend: site.baseurl }}"></a>
           {% endif %}
           <div class="c-post-content">
             <h2 class="c-post-title">
-              <a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a>
+              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
             <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
-            <span class="c-post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+            <span class="c-post-date">{{ post.date | date: '%Y, %b %d' }}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
             <span class="c-post-words">
               {% capture words %}{{ post.content | number_of_words }}{% endcapture %}
               {% unless words contains "-" %}
@@ -27,12 +29,8 @@ layout: home
             </span>
           </div>
         </article>
-        {% break %} {# 하나라도 매칭되면 중복 방지 위해 루프 탈출 #}
+        {% break %}
       {% endif %}
     {% endfor %}
   {% endfor %}
-</div> <!-- /.c-posts -->
-
-{% if page.title == "Categories" or page.url == "/categories/" %}
-  {% include categories.html %}
-{% endif %}
+</div>
